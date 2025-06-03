@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lưu bút đặc biệt</title>
+  <link rel="stylesheet" href="luubutstyle.css" />
+    <script defer src="luubutscript.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+
+<!-- BƯỚC 1: Hiển thị lời nhắn bằng typewriter -->
+<div id="step1">
+  <h1>💌 Lưu bút của a dành cho e 💌</h1>
+  <div class="box" id="typewriterContainer">
+    <p id="staticLine">📝 Một vài lời anh muốn gửi đến em...</p>
+    <p id="introLine"></p> <!-- dòng Kính gửi sẽ hiện ra ở đây -->
+    <div id="typewriterText"></div>
+  </div>
+  <button id="nextBtn" class="hidden" onclick="goToStep2()">Viết lại cho anh ➡️</button>
+</div>
+
+  <!-- BƯỚC 2: Người nhận ghi lời nhắn -->
+  <div id="step2" class="hidden">
+    <h1>💌 Em viết lại cho anh nè 💌</h1>
+    <p>Viết điều gì đó cho anh nhé (chỉ là giả vờ gửi thôi đó 😚):</p>
+    <textarea id="toMe" placeholder="Viết gì đó ở đây..."></textarea>
+    <button onclick="sendSecretEmail()">Gửi (giả vờ 😚)</button>
+
+    <div class="message" id="thankMessage" style="display: none;">
+      Cảm ơn em đã để lại lời nhắn 😚 Anh yêu em nhiều lắm ❤️
+    </div>
+  </div>
+  <script>
+    function goToStep2() {
+  document.getElementById("step1").classList.add("hidden");
+  document.getElementById("step2").classList.remove("hidden");
+}
+
+function sendSecretEmail() {
+      const content = document.getElementById("toMe").value.trim();
+      if (!content) return;
+
+      fetch("https://script.google.com/macros/s/AKfycbyQReKqOp4CzggCTU3OPuu3UjYgoKG765v3p_iVCAHCn-NfIkt4xSqY81Qlv51iCRSY/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `content=${encodeURIComponent(content)}`
+      });
+
+      document.getElementById("toMe").style.display = "none";
+      document.querySelector("#step2 button").style.display = "none";
+      document.getElementById("thankMessage").style.display = "block";
+    }
+  </script>
+</body>
+</html>

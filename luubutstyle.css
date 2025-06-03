@@ -1,0 +1,118 @@
+body {
+      background: #fff0f5;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h1 {
+      color: #cc3366;
+    }
+
+    .box {
+  background: #fff;
+  border: 2px dashed #cc3366;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+  width: 700px;         /* cố định chiều rộng */
+  max-width: 90vw;
+  color: #444;
+  text-align: left;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
+
+#staticLine {
+  text-align: center;
+  font-size: 28px;      /* giống h1 */
+  font-weight: bold;
+  color: #cc3366;
+  margin-bottom: 20px;
+}
+
+#introLine {
+  text-align: left;
+  font-size: 16px; /* hoặc cùng với container nội dung */
+  color: #444;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+    .typewriter-line {
+      opacity: 0;
+    }
+
+    .visible-line {
+      opacity: 1;
+    }
+
+    textarea {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 600px;
+      height: 160px;
+      padding: 15px;
+      font-size: 16px;
+      border: 2px solid #cc3366;
+      border-radius: 10px;
+      resize: none;
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 24px;
+      font-size: 16px;
+      background: #cc3366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #b22a57;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-style: italic;
+      color: #555;
+    }
+.typewriter-line {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.visible-line {
+  opacity: 1;
+}
+
+.heart {
+  position: fixed;
+  top: -10px;
+  color: red;
+  font-size: 24px;
+  animation: fall linear forwards;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
